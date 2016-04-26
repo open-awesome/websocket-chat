@@ -16,7 +16,7 @@ window.onload = function () {
     * WebSocket onopen event.
     */
     socket.onopen = function (event) {
-        label.innerHTML = "Connection open";
+        label.innerHTML = "Conexão OK";
     }
 
     /**
@@ -25,7 +25,7 @@ window.onload = function () {
     socket.onmessage = function (event) {
         if (typeof event.data === "string") {
             // Display message.
-            label.innerHTML = label.innerHTML + "<br />Server says: <strong>" + event.data + "</strong>";
+            label.innerHTML = label.innerHTML + "<br />Servidor: <strong>" + event.data + "</strong>";
         }
     }
 
@@ -38,10 +38,10 @@ window.onload = function () {
         var wasClean = event.wasClean;
 
         if (wasClean) {
-            label.innerHTML = "Connection closed normally.";
+            label.innerHTML = "Conexão encerrada.";
         }
         else {
-            label.innerHTML = "Connection closed with message: " + reason + " (Code: " + code + ")";
+            label.innerHTML = "Conexão encerrada com a mensagem: " + reason + " (Code: " + code + ")";
         }
     }
 
@@ -49,7 +49,7 @@ window.onload = function () {
     * WebSocket onerror event.
     */
     socket.onerror = function (event) {
-        label.innerHTML = "Error: " + event;
+        label.innerHTML = "Erro: " + event;
     }
 
     /**
@@ -81,7 +81,7 @@ window.onload = function () {
         if (socket.readyState == WebSocket.OPEN) {
             socket.send(textView.value);
 
-            label.innerHTML = label.innerHTML + "<br />You say: <strong>" + textView.value + "</strong>";
+            label.innerHTML = label.innerHTML + "<br />Você: <strong>" + textView.value + "</strong>";
             textView.value = "";
         }
     }
